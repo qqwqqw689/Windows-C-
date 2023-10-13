@@ -1,15 +1,31 @@
 #include <windows.h>
+// windows.h is the main header file for WinAPI.
 #include <tchar.h>
 #include <stdio.h>
 #include <strsafe.h>
 
 #define BUFSIZE 4096
 
+//  _tmain, a preprocessor macro defined in tchar.h.
+//  _tmain resolves to main unless _UNICODE is defined.
+//  In that case, _tmain resolves to wmain. 
 int _tmain()
 {
     TCHAR chNewEnv[BUFSIZE];
+    // TCHAR
+    // MAPI(Messaging Application Programming Interface)
+    // clients can use the TCHAR data type to represent
+    // a string of either the WCHAR or char type.
     LPTSTR lpszCurrentVariable;
+    // LPTSTR
+    // An LPWSTR if UNICODE is defined, an LPSTR otherwise. 
+    // LPWSTR
+    // A pointer to a null-terminated string of 16-bit Unicode characters.
+    // LPSTR
+    // A pointer to a null-terminated string of 8-bit Windows (ANSI)
     DWORD dwFlags = 0;
+    // DWORD
+    // A 32-bit unsigned integer. 
     TCHAR szAppName[] = TEXT("ex3.exe");
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
